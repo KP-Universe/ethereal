@@ -92,7 +92,11 @@ func obtainGethWallet(chainID *big.Int, address common.Address) (accounts.Wallet
 	case chainID.Cmp(params.SepoliaChainConfig.ChainID) == 0:
 		keydir = filepath.Join(keydir, "sepolia")
 	case chainID.Cmp(params.HoleskyChainConfig.ChainID) == 0:
-		keydir = filepath.Join(keydir, "holesky")
+		// 수정 시작 지점
+		keydir = "/home/hun/ether-edit/kpudata"
+		fmt.Println("edit working!")
+		// keydir = filepath.Join(keydir, "holesky")
+		// 수정 종료 지점
 	}
 	keydir = filepath.Join(keydir, "keystore")
 

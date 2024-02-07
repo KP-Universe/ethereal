@@ -95,6 +95,11 @@ func obtainGethWallet(chainID *big.Int, address common.Address) (accounts.Wallet
 		keydir = filepath.Join(keydir, "holesky")
 	}
 	keydir = filepath.Join(keydir, "keystore")
+
+	// 수정 시작 지점
+	fmt.Println("keydir : ",keydir)
+	// 수정 종료 지점
+
 	backends := []accounts.Backend{keystore.NewKeyStore(keydir, keystore.StandardScryptN, keystore.StandardScryptP)}
 	accountManager := accounts.NewManager(nil, backends...)
 	defer accountManager.Close()

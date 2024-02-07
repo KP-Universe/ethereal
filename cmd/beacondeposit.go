@@ -96,14 +96,24 @@ var beaconDepositKnownContracts = []*beaconDepositContract{
 		minVersion:  3,
 		maxVersion:  4,
 	},
+	// 수정 시작 지점
 	{
 		network:     "Holesky",
-		chainID:     big.NewInt(17000),
+		chainID:     big.NewInt(142536),
 		address:     util.MustDecodeHexString("0x4242424242424242424242424242424242424242"),
-		forkVersion: []byte{0x01, 0x01, 0x70, 0x00},
+		forkVersion: []byte{0x20, 0x00, 0x00, 0x89},
 		minVersion:  3,
 		maxVersion:  4,
 	},
+	// {
+	// 	network:     "Holesky",
+	// 	chainID:     big.NewInt(17000),
+	// 	address:     util.MustDecodeHexString("0x4242424242424242424242424242424242424242"),
+	// 	forkVersion: []byte{0x01, 0x01, 0x70, 0x00},
+	// 	minVersion:  3,
+	// 	maxVersion:  4,
+	// },
+	// 수정 종료 지점
 }
 
 // beaconDepositCmd represents the beacon deposit command.

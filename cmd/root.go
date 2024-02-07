@@ -200,10 +200,11 @@ func connectionAddress(_ context.Context) (string, error) {
 		return "https://goerli.infura.io/v3/831a5442dc2e4536a9f8dee4ea1707a6", nil
 	case "sepolia":
 		return "https://sepolia.infura.io/v3/831a5442dc2e4536a9f8dee4ea1707a6", nil
-	// 수정 시작 지점
 	case "holesky":
+		return "https://holesky.infura.io/v3/831a5442dc2e4536a9f8dee4ea1707a6", nil
+	// 수정 시작 지점
+	case "kpuniverse":
 		return "http://203.234.103.157:5222", nil
-		// return "https://holesky.infura.io/v3/831a5442dc2e4536a9f8dee4ea1707a6", nil
 	// 수정 종료 지점
 	default:
 		return "", fmt.Errorf("unknown network %s", viper.GetString("network"))
@@ -325,7 +326,7 @@ func init() {
 	if err := viper.BindPFlag("connection", RootCmd.PersistentFlags().Lookup("connection")); err != nil {
 		panic(err)
 	}
-	RootCmd.PersistentFlags().String("network", "mainnet", "network to access (mainnet/goerli/sepolia/holesky) (overridden by connection option)")
+	RootCmd.PersistentFlags().String("network", "mainnet", "network to access (mainnet/goerli/sepolia/holesky/kpuniverse) (overridden by connection option)")
 	if err := viper.BindPFlag("network", RootCmd.PersistentFlags().Lookup("network")); err != nil {
 		panic(err)
 	}

@@ -96,23 +96,23 @@ var beaconDepositKnownContracts = []*beaconDepositContract{
 		minVersion:  3,
 		maxVersion:  4,
 	},
-	// 수정 시작 지점
 	{
 		network:     "Holesky",
+		chainID:     big.NewInt(17000),
+		address:     util.MustDecodeHexString("0x4242424242424242424242424242424242424242"),
+		forkVersion: []byte{0x01, 0x01, 0x70, 0x00},
+		minVersion:  3,
+		maxVersion:  4,
+	},
+	// 수정 시작 지점
+	{
+		network:     "KPUniverse",
 		chainID:     big.NewInt(142536),
 		address:     util.MustDecodeHexString("0x4242424242424242424242424242424242424242"),
 		forkVersion: []byte{0x20, 0x00, 0x00, 0x89},
 		minVersion:  3,
 		maxVersion:  4,
 	},
-	// {
-	// 	network:     "Holesky",
-	// 	chainID:     big.NewInt(17000),
-	// 	address:     util.MustDecodeHexString("0x4242424242424242424242424242424242424242"),
-	// 	forkVersion: []byte{0x01, 0x01, 0x70, 0x00},
-	// 	minVersion:  3,
-	// 	maxVersion:  4,
-	// },
 	// 수정 종료 지점
 }
 
@@ -472,7 +472,7 @@ func init() {
 	beaconDepositCmd.Flags().BoolVar(&beaconDepositAllowDuplicateDeposit, "allow-duplicate-deposit", false, "Allow sending multiple deposits with the same validator public key (WARNING: only if you know what you are doing)")
 	beaconDepositCmd.Flags().BoolVar(&beaconDepositForceZeroValue, "force-zero-value", false, "Sending the deposit with 0 Ether regardless of the information in the deposit data")
 	beaconDepositCmd.Flags().StringVar(&beaconDepositContractAddress, "address", "", "The contract address to which to send the deposit (overrides the value obtained from eth2network)")
-	beaconDepositCmd.Flags().StringVar(&beaconDepositEth2Network, "eth2network", "mainnet", "The name of the Ethereum 2 network for which to send the deposit (mainnet/prater/holesky/sepolia)")
+	beaconDepositCmd.Flags().StringVar(&beaconDepositEth2Network, "eth2network", "mainnet", "The name of the Ethereum 2 network for which to send the deposit (mainnet/prater/holesky/sepolia/kpuniverse)")
 	beaconDepositCmd.Flags().Uint64Var(&beaconDepositOverrideGas, "override-gas", 0, "Override the gas limit for the deposit transaction")
 	addTransactionFlags(beaconDepositCmd, "the account from which to send the deposit")
 }

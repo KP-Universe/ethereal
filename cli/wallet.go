@@ -92,11 +92,11 @@ func obtainGethWallet(chainID *big.Int, address common.Address) (accounts.Wallet
 	case chainID.Cmp(params.SepoliaChainConfig.ChainID) == 0:
 		keydir = filepath.Join(keydir, "sepolia")
 	case chainID.Cmp(params.HoleskyChainConfig.ChainID) == 0:
-		// 수정 시작 지점
-		keydir = "/home/hun/ether-edit/kpudata"
-		fmt.Println("edit working!")
-		// keydir = filepath.Join(keydir, "holesky")
-		// 수정 종료 지점
+		keydir = filepath.Join(keydir, "holesky")
+	// 수정 시작 지점
+	case chainID.Cmp(params.KPUniverseChainConfig.ChainID) == 0:
+		keydir = "/home/hun/kpuniverse/kpudata"
+	// 수정 종료 지점
 	}
 	keydir = filepath.Join(keydir, "keystore")
 
@@ -123,7 +123,12 @@ func obtainGethWallets(chainID *big.Int, debug bool) ([]accounts.Wallet, error) 
 		keydir = filepath.Join(keydir, "sepolia")
 	case chainID.Cmp(params.HoleskyChainConfig.ChainID) == 0:
 		keydir = filepath.Join(keydir, "holesky")
+	// 수정 시작 지점
+	case chainID.Cmp(params.KPUniverseChainConfig.ChainID) == 0:
+		keydir = "/home/hun/kpuniverse/kpudata"
+	// 수정 종료 지점
 	}
+
 	keydir = filepath.Join(keydir, "keystore")
 	if debug {
 		fmt.Printf("Geth key directory is %s\n", keydir)

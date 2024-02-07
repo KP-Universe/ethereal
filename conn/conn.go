@@ -100,6 +100,10 @@ func newOffline(_ context.Context) (*Conn, error) {
 		chainID = params.SepoliaChainConfig.ChainID
 	case "holesky":
 		chainID = params.HoleskyChainConfig.ChainID
+	// 수정 시작 지점
+	case "kpuniverse":
+		chainID = params.KPUniverseChainConfig.ChainID
+	// 수정 종료 지점
 	default:
 		switch {
 		case strings.HasPrefix(viper.GetString("chainid"), "0x"):

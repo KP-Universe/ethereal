@@ -94,7 +94,7 @@ func obtainGethWallet(chainID *big.Int, address common.Address) (accounts.Wallet
 	case chainID.Cmp(params.HoleskyChainConfig.ChainID) == 0:
 		keydir = filepath.Join(keydir, "holesky")
 	// 수정 시작 지점
-	case chainID.Cmp(params.KPUniverseChainConfig.ChainID) == 0:
+	case chainID.Cmp(142536) == 0:
 		keydir = "/home/hun/kpuniverse/kpudata"
 	// 수정 종료 지점
 	}
@@ -124,7 +124,7 @@ func obtainGethWallets(chainID *big.Int, debug bool) ([]accounts.Wallet, error) 
 	case chainID.Cmp(params.HoleskyChainConfig.ChainID) == 0:
 		keydir = filepath.Join(keydir, "holesky")
 	// 수정 시작 지점
-	case chainID.Cmp(params.KPUniverseChainConfig.ChainID) == 0:
+	case chainID.Cmp(142536) == 0:
 		keydir = "/home/hun/kpuniverse/kpudata"
 	// 수정 종료 지점
 	}
